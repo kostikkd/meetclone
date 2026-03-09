@@ -1,10 +1,11 @@
 import { TerminalIcon, VideoIcon } from "lucide-react";
-import Container from "./Container";
 import { Button } from "./ui/button";
-import { Field } from "./ui/field";
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from "./ui/input-group";
 import Link from "next/link";
 import Container2 from "./Container2";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Field } from "./ui/field";
+import MeetingCreate from "./MeetingCreate";
 
 function Main() {
     return (
@@ -17,9 +18,17 @@ function Main() {
                     </div>
                     <div className="flex gap-2 pb-8 flex-col sm:flex-row">
                         <div>
-                            <Button className="w-full px-5 py-5" asChild variant={"default"}>
-                                <Link href="/new-meeting"><VideoIcon/> New Meeting</Link>
-                            </Button>
+                            <Dialog>
+                                <form>
+                                    <DialogTrigger asChild>
+                                        <Button className="w-full px-5 py-5"variant={"default"}><VideoIcon/>Create Meeting</Button>
+                                    </DialogTrigger>
+                                    <DialogContent className="sm:max-w-2xl" showCloseButton={false}>
+                                        <DialogTitle></DialogTitle>
+                                        <MeetingCreate/>
+                                    </DialogContent>
+                                </form>
+                            </Dialog>
                         </div>
                         <div className="flex gap-2">
                             <Field className="w-full sm:max-w-45 ">
@@ -31,7 +40,7 @@ function Main() {
                                 </InputGroup>
                             </Field>
                             <Button className="px-5 py-5 bg-transparent" asChild variant={"ghost"}>
-                                <Link href="/meeting-code">Join</Link>
+                                <Link href="/meet/meeting-code">Join</Link>
                             </Button>
                         </div>
                     </div>
@@ -41,16 +50,15 @@ function Main() {
                         <div className="w-full max-w-full aspect-video rounded-md bg-white border border-gray-200 flex justify-center items-center">
                             <div className="w-1/4 aspect-square rounded-full bg-orange-200 flex justify-center items-center text-gray-600">DS</div>
                         </div>
-                         <div className="w-full max-w-full aspect-video rounded-md bg-white border border-gray-200 flex justify-center items-center">
+                        <div className="w-full max-w-full aspect-video rounded-md bg-white border border-gray-200 flex justify-center items-center">
                             <div className="w-1/4 aspect-square rounded-full bg-amber-200 flex justify-center items-center text-gray-600">FD</div>
                         </div>
-                         <div className="w-full max-w-full aspect-video rounded-md bg-white border border-gray-200 flex justify-center items-center">
+                        <div className="w-full max-w-full aspect-video rounded-md bg-white border border-gray-200 flex justify-center items-center">
                             <div className="w-1/4 aspect-square rounded-full bg-green-200 flex justify-center items-center text-gray-600">YU</div>
                         </div>
-                         <div className="w-full max-w-full aspect-video rounded-md bg-white border border-gray-200 flex justify-center items-center">
+                        <div className="w-full max-w-full aspect-video rounded-md bg-white border border-gray-200 flex justify-center items-center">
                             <div className="w-1/4 aspect-square rounded-full bg-cyan-200 flex justify-center items-center text-gray-600">KR</div>
                         </div>
-                        
                     </div>
                 </div>
             </main>
