@@ -4,10 +4,11 @@ import { Button } from "./ui/button";
 import { Field } from "./ui/field";
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from "./ui/input-group";
 import Link from "next/link";
+import Container2 from "./Container2";
 
 function Main() {
     return (
-        <Container>
+        <Container2>
             <main className="min-h-[calc(100vh-82px)] flex items-center">
                 <div className="flex-4">
                     <div>
@@ -29,7 +30,7 @@ function Main() {
                                     </InputGroupAddon>
                                 </InputGroup>
                             </Field>
-                            <Button className="px-5 py-5 bg-transparent" asChild variant={"outline"}>
+                            <Button className="px-5 py-5 bg-transparent" asChild variant={"ghost"}>
                                 <Link href="/meeting-code">Join</Link>
                             </Button>
                         </div>
@@ -53,7 +54,7 @@ function Main() {
                     </div>
                 </div>
             </main>
-        </Container>
+        </Container2>
     );
 }
 

@@ -4,6 +4,7 @@ import { Avatar, AvatarBadge, AvatarImage } from "./ui/avatar";
 import { SettingsIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "./ui/dialog";
 
 function Header() {
     const haveVersion:boolean = false;
@@ -15,35 +16,12 @@ function Header() {
                         <Image src="/logo.svg" alt="Logo" width={24} height={24} /><span className="font-bold text-xl">Connect</span>
                     </Link>
                 </nav>
-                <nav className="hidden sm:block text-gray-500 text-sm">HH:MM AM • Tue, Oct 24</nav>
                 <nav className="flex items-center gap-6">
                     <div className="hidden sm:block">
                         <Button variant={"ghost"} size={"icon-lg"} className="rounded-full">
                             <SettingsIcon size={72} className="text-gray-600"/>
                         </Button>
-                        
                     </div>
-                    {haveVersion && (
-                        <div>
-                            <Avatar>
-                                <AvatarImage src="/user.jpg" alt="Avatar not found"/>
-                                <AvatarBadge className="bg-green-500"/>
-                            </Avatar>
-                        </div>
-                    )}
-                    {!haveVersion && (
-                        <div className="flex gap-1.5">
-                            <Button asChild variant={"default"} size={"lg"}>
-                                <Link href="/login">Login</Link>
-                            </Button>
-                            <Button className="bg-transparent" asChild variant={"outline"} size={"lg"}>
-                                <Link href="/signup">Sign Up</Link>
-                            </Button>
-                        </div>
-                        
-                    )}
-                    
-                    
                 </nav>
             </header>
         </Container>
