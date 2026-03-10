@@ -15,6 +15,9 @@ function Header() {
                         <Image src="/logo.svg" alt="Logo" width={24} height={24} /><span className="font-bold text-xl">Connect</span>
                     </Link>
                 </nav>
+                {
+                    //! TODO Client Component
+                }
                 <nav className="hidden sm:block text-gray-500 text-sm">HH:MM AM • Tue, Oct 24</nav>
                 <nav className="flex items-center gap-6">
                     <div className="hidden sm:block">

@@ -24,24 +24,29 @@ function Main() {
                                         <Button className="w-full px-5 py-5"variant={"default"}><VideoIcon/>Create Meeting</Button>
                                     </DialogTrigger>
                                     <DialogContent className="sm:max-w-2xl" showCloseButton={false}>
-                                        <DialogTitle></DialogTitle>
+                                        <DialogTitle/>
                                         <MeetingCreate/>
                                     </DialogContent>
                                 </form>
                             </Dialog>
                         </div>
-                        <div className="flex gap-2">
-                            <Field className="w-full sm:max-w-45 ">
-                                <InputGroup className="py-5">
-                                    <InputGroupInput placeholder="Enter a code" type="number"></InputGroupInput>
-                                    <InputGroupAddon>
-                                        <InputGroupText><TerminalIcon/></InputGroupText>
-                                    </InputGroupAddon>
-                                </InputGroup>
-                            </Field>
-                            <Button className="px-5 py-5 bg-transparent" asChild variant={"ghost"}>
-                                <Link href="/meet/meeting-code">Join</Link>
-                            </Button>
+                        <div className=""> 
+                            {
+                                //! TODO Client component
+                            }
+                            <form className="flex gap-2">
+                                <Field className="w-full sm:max-w-45 ">
+                                    <InputGroup className="py-5">
+                                        <InputGroupInput placeholder="Enter a code" type="number"></InputGroupInput>
+                                        <InputGroupAddon>
+                                            <InputGroupText><TerminalIcon/></InputGroupText>
+                                        </InputGroupAddon>
+                                    </InputGroup>
+                                </Field>
+                                <Button className="px-5 py-5 bg-transparent" asChild variant={"ghost"}>
+                                    <Link href={`/meet/000000`}>Join</Link>
+                                </Button>
+                            </form>
                         </div>
                     </div>
                 </div>
