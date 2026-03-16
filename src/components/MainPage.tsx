@@ -17,19 +17,7 @@ function Main() {
                         <h4 className="text-md text-gray-600 pb-8">Connect, collaborate, and share ideas with premium video quality and <br />distraction-free controls.</h4>
                     </div>
                     <div className="flex gap-2 pb-8 flex-col sm:flex-row">
-                        <div>
-                            <Dialog>
-                                <form>
-                                    <DialogTrigger asChild>
-                                        <Button className="w-full px-5 py-5"variant={"default"}><VideoIcon/>Create Meeting</Button>
-                                    </DialogTrigger>
-                                    <DialogContent className="sm:max-w-2xl" showCloseButton={false}>
-                                        <DialogTitle/>
-                                        <MeetingCreate/>
-                                    </DialogContent>
-                                </form>
-                            </Dialog>
-                        </div>
+                        <MeetingCreate/>
                         <div className=""> 
                             {
                                 //! TODO Client component
