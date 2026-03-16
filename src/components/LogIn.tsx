@@ -50,8 +50,6 @@ function Main() {
   });
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log("Signup data:", data);
-    console.log("DATABASE_URL at build:", process.env.DATABASE_URL);
     const res = await signUp.email({
       email: data.email,
       password: data.password,
@@ -183,7 +181,7 @@ function Main() {
                 <FieldDescription className="text-center text-xs">
                   Have an account?{" "}
                   <Link
-                    href="/signup"
+                    href="/sign-in"
                     className="text-gray-600 hover:underline"
                   >
                     Sign In

@@ -37,10 +37,10 @@ function Header() {
                     {!haveVersion && (
                         <div className="flex gap-1.5">
                             <Button asChild variant={"default"} size={"lg"}>
-                                <Link href="/login">Login</Link>
+                                <Link href="/sign-in">Sing In</Link>
                             </Button>
                             <Button className="bg-transparent" asChild variant={"outline"} size={"lg"}>
-                                <Link href="/signup">Sign Up</Link>
+                                <Link href="/sign-up">Sign Up</Link>
                             </Button>
                         </div>
                         

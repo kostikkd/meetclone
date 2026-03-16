@@ -136,7 +136,7 @@ function Main() {
                 <FieldDescription className="text-center text-xs">
                   Don't have an account?{" "}
                   <Link
-                    href="/signup"
+                    href="/sign-up"
                     className="text-gray-600 hover:underline"
                   >
                     Sign Up
