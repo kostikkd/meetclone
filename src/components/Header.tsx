@@ -1,12 +1,19 @@
+"use client";
 import Container from "@/components/Container";
 import Image from "next/image";
 import { Avatar, AvatarBadge, AvatarImage } from "./ui/avatar";
 import { SettingsIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import UserIcon from "./userDefaultIcon";
+import { useSession } from "@/lib/auth-client";
+
+
 
 function Header() {
-    const haveVersion:boolean = false;
+    let haveVersion:boolean = false;
+    const session = useSession().data
+    if (session) {haveVersion = true}
     return (
         <Container>
             <header className="flex justify-between items-center 9 h-20.5">
@@ -29,7 +36,8 @@ function Header() {
                     {haveVersion && (
                         <div>
                             <Avatar>
-                                <AvatarImage src="/user.jpg" alt="Avatar not found"/>
+                                {/* <AvatarImage src="/user.jpg" alt="Avatar not found"/>*/}
+                                <UserIcon userName={session?.user.name as string}/>
                                 <AvatarBadge className="bg-green-500"/>
                             </Avatar>
                         </div>

@@ -18,12 +18,18 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { signIn } from "@/lib/auth-client";
+
 const formSchema = z.object({
   email: z.string().email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
 function Main() {
+  const route = useRouter();
+  const [error, setError] = useState<null | string>(null)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,8 +38,18 @@ function Main() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log("Login data:", data);
+   async function onSubmit(data: z.infer<typeof formSchema>) {
+    setError(null);
+    const res = await signIn.email({
+        email: data.email,
+        password: data.password
+    })
+    if (res.error) {
+        setError(res.error.message! || "Error")
+    }
+    else {
+        route.push("/")
+    }
   }
 
   return (
@@ -46,23 +62,17 @@ function Main() {
                 <FieldLegend className="text-center text-4xl font-bold">
                   Sign In
                 </FieldLegend>
-
                 <FieldDescription className="text-center pb-4">
                   Please enter your credentials to sign in.
                 </FieldDescription>
-
                 <FieldGroup className="pb-4">
-                  {/* Email */}
                   <Controller
                     name="email"
                     control={form.control}
                     render={({ field, fieldState }) => (
                       <Field>
                         <FieldLabel>Email address</FieldLabel>
-                        <Input
-                          {...field}
-                          className="py-6 text-3xl bg-white"
-                        />
+                        <Input {...field} className="py-6 text-3xl bg-white" />
                         {fieldState.error && (
                           <p className="text-red-500 text-sm">
                             {fieldState.error.message}
@@ -71,8 +81,6 @@ function Main() {
                       </Field>
                     )}
                   />
-
-                  {/* Password */}
                   <Controller
                     name="password"
                     control={form.control}

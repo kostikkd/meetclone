@@ -38,7 +38,6 @@ function Main() {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
 
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,8 +52,8 @@ function Main() {
     const res = await signUp.email({
       email: data.email,
       password: data.password,
-      name: data.name
-    })
+      name: data.name,
+    });
     if (res.error) {
       setError(res.error.message! || "Error");
     } else {
