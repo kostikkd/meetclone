@@ -1,13 +1,21 @@
 type UserIconProps = {
     userName: string;
+    color: string;
 };
 
-function UserIcon({ userName }: UserIconProps) {
-    const name = userName.split(" ")
+function UserIcon({ userName, color }: UserIconProps) {
+    const nameParts = userName.split(" ");
+
+    const initials =
+        nameParts[0]?.[0] + (nameParts[1]?.[0] || "");
+
     return (
-        <div className="bg-lime-200 w-full h-full rounded-full flex items-center justify-center">
-            <span className="text-sm text-gray-600">
-                {name[0][0] + (name[1][0] || "")}
+        <div
+            style={{ backgroundColor: color }}
+            className="w-full h-full rounded-full flex items-center justify-center"
+        >
+            <span className="text-sm text-gray-600 font-semibold">
+                {initials.toUpperCase()}
             </span>
         </div>
     );

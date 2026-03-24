@@ -5,7 +5,7 @@ import { Avatar, AvatarBadge, AvatarImage } from "./ui/avatar";
 import { SettingsIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import UserIcon from "./userDefaultIcon";
+import UserIcon from "./UserDefaultIcon";
 import { useSession } from "@/lib/auth-client";
 
 
@@ -37,7 +37,7 @@ function Header() {
                         <div>
                             <Avatar>
                                 {/* <AvatarImage src="/user.jpg" alt="Avatar not found"/>*/}
-                                <UserIcon userName={session?.user.name as string}/>
+                                <UserIcon userName={session?.user.name as string} color="#11c179"/>
                                 <AvatarBadge className="bg-green-500"/>
                             </Avatar>
                         </div>

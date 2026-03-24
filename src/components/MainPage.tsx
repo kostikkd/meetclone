@@ -1,4 +1,4 @@
-import { TerminalIcon, VideoIcon } from "lucide-react";
+import { TerminalIcon, VideoIcon, XIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from "./ui/input-group";
 import Link from "next/link";
@@ -6,6 +6,8 @@ import Container2 from "./Container2";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Field } from "./ui/field";
 import MeetingCreate from "./MeetingCreate";
+import UserIcon from "./UserDefaultIcon";
+import { Avatar, AvatarBadge } from "./ui/avatar";
 
 function Main() {
     return (
@@ -18,10 +20,7 @@ function Main() {
                     </div>
                     <div className="flex gap-2 pb-8 flex-col sm:flex-row">
                         <MeetingCreate/>
-                        <div className=""> 
-                            {
-                                //! TODO Client component
-                            }
+                        <div className="">
                             <form className="flex gap-2">
                                 <Field className="w-full sm:max-w-45 ">
                                     <InputGroup className="py-5">
@@ -31,10 +30,42 @@ function Main() {
                                         </InputGroupAddon>
                                     </InputGroup>
                                 </Field>
-                                <Button className="px-5 py-5 bg-transparent" asChild variant={"ghost"}>
-                                    <Link href={`/meet/000000`}>Join</Link>
+                                <Button className="px-5 py-5 bg-transparent" variant={"ghost"} type="submit">
+                                    Join
                                 </Button>
                             </form>
+                        </div>
+                    </div>
+                    <div className="flex gap-1.5">
+                        <div className="w-2/7 border border-gray-300 rounded-2xl py-1 px-1.5 flex justify-between items-center">
+                            <div className="flex gap-1.5">
+                                <Avatar size="sm">
+                                    {/* <AvatarImage src="/user.jpg" alt="Avatar not found"/>*/}
+                                    <UserIcon userName={"K T"} color="#F1c1A9"/>
+                                </Avatar>
+                                <span>Meet Name</span>
+                            </div>
+                            <XIcon size={20}/>
+                        </div>
+                        <div className="w-2/7 border border-gray-300 rounded-2xl py-1 px-1.5 flex justify-between items-center">
+                            <div className="flex gap-1.5">
+                                <Avatar size="sm">
+                                    {/* <AvatarImage src="/user.jpg" alt="Avatar not found"/>*/}
+                                    <UserIcon userName={"G S"} color="#1Fc1F9"/>
+                                </Avatar>
+                                <span>Meet Name</span>
+                            </div>
+                            <XIcon size={20}/>
+                        </div>
+                        <div className="w-2/7 border border-gray-300 rounded-2xl py-1 px-1.5 flex justify-between items-center">
+                            <div className="flex gap-1.5">
+                                <Avatar size="sm">
+                                    {/* <AvatarImage src="/user.jpg" alt="Avatar not found"/>*/}
+                                    <UserIcon userName={"K F"} color="#f1c119"/>
+                                </Avatar>
+                                <span>Meet Name</span>
+                            </div>
+                            <XIcon size={20}/>
                         </div>
                     </div>
                 </div>
