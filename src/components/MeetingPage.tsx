@@ -1,25 +1,34 @@
+"use client";
+
+import { CameraIcon, MicIcon, ScreenShareIcon, VideoIcon } from "lucide-react";
 import Container from "./Container2";
 import Controle from "./Controle";
-import UsersBlock from "./UsersBlock";
+import { Button } from "./ui/button";
+import UsersBlock from "./MeetBlock";
+import { ControlBar, PreJoin, RoomContext } from "@livekit/components-react";
+import UserIcon from "./UserDefaultIcon";
+import { room } from "@/lib/livekitRoom";
+import PreMeeting from "./PreMeeting";
+import Header from "./HeaderMeeting";
 
-function Main() {
+
+function Main({
+    status,
+    slug
+}: {
+    status: "preMeeting" | "meeting" | "postMeeting";
+    slug: string;
+}) {
     return (
-        <div>
+        <div className=" ">
             <Container>
-                <div className="min-h-[calc(100vh-102px)]">
-                    <UsersBlock
-                        users={[
-                            { name: "1 D", color: "#7dd3fc" }, // sky-300
-                            { name: "2 D", color: "#fecaca" }, // red-200
-                            { name: "3 D", color: "#f1faca" }, 
-                            { name: "4 D", color: "#fecf1a" },
-                            { name: "5 D", color: "#11caca" },
-                            { name: "6 D", color: "#1131ca" },
-                            { name: "7 D", color: "#11c179" },
-                        ]}
-                    />
-                    <Controle/>
-                </div>
+                <Header status="preMeeting" />
+                {status === "preMeeting" && (
+                    <div className="min-h-[calc(100vh-102px)] flex items-center justify-center">
+                        <PreMeeting slug={slug} />
+                    </div>
+                    
+                )}
             </Container>
         </div>
     );

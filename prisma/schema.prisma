@@ -22,6 +22,7 @@ model User {
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
   accounts      Account[]
+  meets         meets[]
 
   @@unique([email])
   @@map("user")
@@ -73,4 +74,15 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+model meets {
+  id        Int      @id
+  createdAt DateTime @default(now())
+  meetStart DateTime @default(now())
+  creatorId String   
+  creator   User     @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  slug      Int      @unique
+  @@index([creatorId])
+  @@map("meets")
 }
