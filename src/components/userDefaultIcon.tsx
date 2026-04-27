@@ -3,8 +3,6 @@ type UserIconProps = {
     color: string;
 };
 
-
-
 function UserIcon({ userName, color }: UserIconProps) {
     const nameParts = userName.split(" ");
 

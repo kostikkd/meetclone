@@ -122,44 +122,6 @@ function Main() {
                             </form>
                         </div>
                     </div>
-                    <div className="flex gap-1.5">
-                        <div className="w-2/7 border border-gray-300 rounded-2xl py-1 px-1.5 flex justify-between items-center">
-                            <div className="flex gap-1.5">
-                                <Avatar size="sm">
-                                    <UserIcon
-                                        userName={"K T"}
-                                        color="#F1c1A9"
-                                    />
-                                </Avatar>
-                                <span>Meet Name</span>
-                            </div>
-                            <XIcon size={20} />
-                        </div>
-                        <div className="w-2/7 border border-gray-300 rounded-2xl py-1 px-1.5 flex justify-between items-center">
-                            <div className="flex gap-1.5">
-                                <Avatar size="sm">
-                                    <UserIcon
-                                        userName={"G S"}
-                                        color="#1Fc1F9"
-                                    />
-                                </Avatar>
-                                <span>Meet Name</span>
-                            </div>
-                            <XIcon size={20} />
-                        </div>
-                        <div className="w-2/7 border border-gray-300 rounded-2xl py-1 px-1.5 flex justify-between items-center">
-                            <div className="flex gap-1.5">
-                                <Avatar size="sm">
-                                    <UserIcon
-                                        userName={"K F"}
-                                        color="#f1c119"
-                                    />
-                                </Avatar>
-                                <span>Meet Name</span>
-                            </div>
-                            <XIcon size={20} />
-                        </div>
-                    </div>
                 </div>
                 <div className="hidden xl:block flex-3">
                     <div className="grid grid-rows-2 grid-cols-2 gap-4">
