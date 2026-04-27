@@ -5,7 +5,7 @@ import { Avatar, AvatarBadge, AvatarImage } from "./ui/avatar";
 import { SettingsIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import UserIcon from "./UserDefaultIcon";
+import UserIcon from "./userDefaultIcon";
 import { useSession } from "@/lib/auth-client";
 import LocalTime from "./Time";
 

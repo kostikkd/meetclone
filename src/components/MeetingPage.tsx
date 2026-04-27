@@ -6,7 +6,7 @@ import Controle from "./Controle";
 import { Button } from "./ui/button";
 import UsersBlock from "./MeetBlock";
 import { ControlBar, PreJoin, RoomContext } from "@livekit/components-react";
-import UserIcon from "./UserDefaultIcon";
+import UserIcon from "./userDefaultIcon";
 import { room } from "@/lib/livekitRoom";
 import PreMeeting from "./PreMeeting";
 import Header from "./HeaderMeeting";

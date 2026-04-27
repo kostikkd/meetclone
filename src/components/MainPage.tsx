@@ -11,10 +11,9 @@ import {
 } from "./ui/input-group";
 import Link from "next/link";
 import Container2 from "./Container2";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Field } from "./ui/field";
 import MeetingCreate from "./MeetingCreate";
-import UserIcon from "./UserDefaultIcon";
+import UserIcon from "./userDefaultIcon";
 import { Avatar, AvatarBadge } from "./ui/avatar";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
