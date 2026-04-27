@@ -239,10 +239,18 @@ export function MeetingCreate() {
                                                                 </div>
                                                                 <Button
                                                                     className="rounded-full hidden xl:block"
-                                                                    variant={"ghost"}
-                                                                    size={"icon-xs"}
+                                                                    variant={
+                                                                        "ghost"
+                                                                    }
+                                                                    size={
+                                                                        "icon-xs"
+                                                                    }
                                                                 >
-                                                                    <X size={20} />
+                                                                    <X
+                                                                        size={
+                                                                            20
+                                                                        }
+                                                                    />
                                                                 </Button>
                                                             </div>
                                                         </InputGroupAddon>

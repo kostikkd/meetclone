@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/button";
 import Header from "./HeaderMeeting";
+import Container from "./Container";
 
 const MeetBlock = () => {
     const room = useRoomContext();
@@ -88,7 +89,7 @@ const MeetBlock = () => {
     }
 
     return (
-        <div>
+        <Container>
             <div className="relative w-full flex flex-col overflow-hidden h-[calc(100vh-0px)]">
                 <RoomAudioRenderer />
 
@@ -104,7 +105,8 @@ const MeetBlock = () => {
                                 className="relative bg-white rounded-[32px] overflow-hidden shadow-sm border border-gray-100 group transition-all aspect-video"
                             >
                                 {isTrackReference(trackRef) &&
-                                trackRef.publication.kind === "video" ? (
+                                trackRef.publication.kind === "video" &&
+                                isCameraEnabled ? (
                                     <VideoTrack
                                         trackRef={trackRef}
                                         className="w-full h-full object-cover"
@@ -138,7 +140,7 @@ const MeetBlock = () => {
                     })}
                 </div>
 
-                <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white px-6 py-4 rounded-[40px] border border-gray-100 z-[9999]">
+                <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white px-6 py-4 rounded-[40px] border border-gray-100 z-50">
                     <Button
                         onClick={handleToggleMic}
                         disabled={!isReady}
@@ -171,7 +173,7 @@ const MeetBlock = () => {
                         )}
                     </Button>
 
-                    <div className="w-[1px] h-8 bg-gray-200 mx-1" />
+                    <div className="w-1px h-8 bg-gray-200 mx-1" />
 
                     <Button className="w-14 h-14 rounded-full bg-white text-gray-500 hover:bg-gray-50 border border-gray-100 transition-colors">
                         <MessageSquare size={22} />
@@ -181,7 +183,7 @@ const MeetBlock = () => {
                         <MoreVertical size={22} />
                     </Button>
 
-                    <div className="w-[1px] h-8 bg-gray-200 mx-1" />
+                    <div className="w-px h-8 bg-gray-200 mx-1" />
 
                     <Button
                         onClick={leaveCall}
@@ -192,7 +194,7 @@ const MeetBlock = () => {
                     </Button>
                 </div>
             </div>
-        </div>
+        </Container>
     );
 };
 

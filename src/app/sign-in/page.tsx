@@ -1,12 +1,14 @@
 import Header from "@/components/Header2";
 import Main from "@/components/SingUp";
-import MainPage from "@/components/SingUp";
 
+export const metadata = {
+    title: "Sign In",
+};
 function SingUpPage() {
     return (
         <div className="bg-gray-100 ">
-            <Header/>
-            <Main/>
+            <Header />
+            <Main />
         </div>
     );
 }

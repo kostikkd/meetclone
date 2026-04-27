@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { SettingsIcon, UserRoundCheck, UserRoundPlus } from "lucide-react";
 import LiveTimer from "./Live";
+import LocalTime from "./Time";
 
 function Header({
     status,
@@ -19,7 +20,7 @@ function Header({
                 {status === "meeting" && <LiveTimer />}
             </nav>
             <nav className="hidden sm:block text-gray-500 text-sm">
-                HH:MM AM • Tue, Oct 24
+                <LocalTime />
             </nav>
             <nav className="flex items-center">
                 <div className="hidden sm:flex gap-2">

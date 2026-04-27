@@ -6,8 +6,7 @@ type UserIconProps = {
 function UserIcon({ userName, color }: UserIconProps) {
     const nameParts = userName.split(" ");
 
-    const initials =
-        nameParts[0]?.[0] + (nameParts[1]?.[0] || "");
+    const initials = nameParts[0]?.[0] + (nameParts[1]?.[0] || "");
 
     return (
         <div

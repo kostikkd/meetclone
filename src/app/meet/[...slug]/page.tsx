@@ -2,6 +2,9 @@ import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import Main from "@/components/MeetingPage";
 
+export const metadata = {
+    title: "Meeting",
+};
 export default async function MeetPage({
     params,
 }: {

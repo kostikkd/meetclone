@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import  prisma  from "@/lib/prisma";
+import prisma from "@/lib/prisma";
 import { auth } from "@/lib/auth"; // 👈 adjust to your auth import
 import { headers } from "next/headers";
 
@@ -13,7 +13,10 @@ export async function POST(req: NextRequest) {
     const { title, date, time } = await req.json();
 
     if (!title || !date || !time) {
-        return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+        return NextResponse.json(
+            { error: "Missing required fields" },
+            { status: 400 },
+        );
     }
 
     let slug: number;

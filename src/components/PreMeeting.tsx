@@ -21,7 +21,7 @@ import MeetBlock from "./MeetBlock";
 const SERVER_URL = process.env.NEXT_PUBLIC_LIVEKIT_URL!;
 async function fetchToken(participantName: string, room: string) {
     const res = await fetch(
-        `/api/livekit-token?name=${encodeURIComponent(participantName)}&room=${room}`
+        `/api/livekit-token?name=${encodeURIComponent(participantName)}&room=${room}`,
     );
     const data = await res.json();
     return data.token as string;
@@ -70,7 +70,7 @@ const PreMeeting = ({ slug }: { slug: string }) => {
         videoTrack?.stop();
         audioTrack?.stop();
         setIsJoined(true);
-    }
+    };
     if (isJoined && token) {
         return (
             <LiveKitRoom

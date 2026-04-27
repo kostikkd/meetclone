@@ -11,10 +11,9 @@ import { room } from "@/lib/livekitRoom";
 import PreMeeting from "./PreMeeting";
 import Header from "./HeaderMeeting";
 
-
 function Main({
     status,
-    slug
+    slug,
 }: {
     status: "preMeeting" | "meeting" | "postMeeting";
     slug: string;
@@ -23,13 +22,13 @@ function Main({
         <div className=" ">
             <Container>
                 <Header status="preMeeting" />
-                {status === "preMeeting" && (
-                    <div className="min-h-[calc(100vh-102px)] flex items-center justify-center">
-                        <PreMeeting slug={slug} />
-                    </div>
-                    
-                )}
             </Container>
+
+            {status === "preMeeting" && (
+                <div className="min-h-[calc(100vh-102px)] flex items-center justify-center">
+                    <PreMeeting slug={slug} />
+                </div>
+            )}
         </div>
     );
 }
