@@ -1,10 +1,9 @@
 import {
-    LiveKitRoom,
     useParticipants,
     GridLayout,
     ParticipantTile,
-    TrackLoop,
     useTracks,
+    useLocalParticipant,
 } from "@livekit/components-react";
 import { Track } from "livekit-client";
 import { Button } from "./ui/button";
@@ -13,26 +12,26 @@ import {
     MessageSquareIcon,
     MicIcon,
     MicOffIcon,
+    UsersIcon,
 } from "lucide-react";
 
-// --- КОМПОНЕНТ ПІСЛЯ JOIN (АКТИВНИЙ ВИКЛИК) ---
 const ActiveMeetingUI = () => {
-    // Отримуємо всі відео-треки учасників (камери)
     const tracks = useTracks(
         [
             { source: Track.Source.Camera, withPlaceholder: true },
             { source: Track.Source.ScreenShare, withPlaceholder: false },
         ],
-        { onlyConnected: true },
+        { onlySubscribed: false }, // ✅ виправлено з onlyConnected
     );
 
     const participants = useParticipants();
+    const { localParticipant } = useLocalParticipant(); // ✅ для displayName
+    const displayName = localParticipant.identity;
 
     return (
         <div className="flex h-screen bg-zinc-950 text-white overflow-hidden">
-            {/* Основна область відео (Сітка) */}
+            {/* Основна область відео */}
             <div className="flex-1 relative p-4">
-                {/* GridLayout автоматично створює TrackRefContext для кожного ParticipantTile */}
                 <GridLayout tracks={tracks} className="h-full">
                     <ParticipantTile />
                 </GridLayout>
@@ -41,7 +40,8 @@ const ActiveMeetingUI = () => {
             {/* Сайдбар з учасниками */}
             <div className="w-80 border-l border-zinc-800 bg-zinc-900/50 backdrop-blur-md p-6 flex flex-col shrink-0">
                 <div className="flex items-center gap-2 mb-6 text-zinc-400 uppercase tracking-widest text-xs font-bold">
-                    <UsersIcon className="w-4 h-4" />
+                    <UsersIcon className="w-4 h-4" />{" "}
+                    {/* ✅ тепер імпортовано */}
                     <span>Participants ({participants.length})</span>
                 </div>
 
@@ -105,10 +105,11 @@ const ActiveMeetingUI = () => {
                 </div>
             </div>
 
-            {/* Компактні кнопки керування (якщо потрібно) */}
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-zinc-900/80 border border-white/10 p-3 rounded-3xl backdrop-blur-xl shadow-2xl">
-                {/* Тут можна додати ControlBar або власні кнопки */}
+                {/* ControlBar або власні кнопки */}
             </div>
         </div>
     );
 };
+
+export default ActiveMeetingUI;
