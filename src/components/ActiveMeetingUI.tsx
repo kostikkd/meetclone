@@ -21,7 +21,7 @@ const ActiveMeetingUI = () => {
             { source: Track.Source.Camera, withPlaceholder: true },
             { source: Track.Source.ScreenShare, withPlaceholder: false },
         ],
-        { onlySubscribed: false }, // ✅ виправлено з onlyConnected
+        { onlySubscribed: false },
     );
 
     const participants = useParticipants();
@@ -30,18 +30,15 @@ const ActiveMeetingUI = () => {
 
     return (
         <div className="flex h-screen bg-zinc-950 text-white overflow-hidden">
-            {/* Основна область відео */}
             <div className="flex-1 relative p-4">
                 <GridLayout tracks={tracks} className="h-full">
                     <ParticipantTile />
                 </GridLayout>
             </div>
 
-            {/* Сайдбар з учасниками */}
             <div className="w-80 border-l border-zinc-800 bg-zinc-900/50 backdrop-blur-md p-6 flex flex-col shrink-0">
                 <div className="flex items-center gap-2 mb-6 text-zinc-400 uppercase tracking-widest text-xs font-bold">
                     <UsersIcon className="w-4 h-4" />{" "}
-                    {/* ✅ тепер імпортовано */}
                     <span>Participants ({participants.length})</span>
                 </div>
 
@@ -106,7 +103,6 @@ const ActiveMeetingUI = () => {
             </div>
 
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-zinc-900/80 border border-white/10 p-3 rounded-3xl backdrop-blur-xl shadow-2xl">
-                {/* ControlBar або власні кнопки */}
             </div>
         </div>
     );
